@@ -8,12 +8,15 @@ e.g. yum install php httpd php-pecl-memcache
 ## Step 2: Update /etc/php.ini file params:
 
 session.save_handler = memcache
+
 session.save_path = "tcp://elasticache-memcache-node1-endpoint:11211,tcp://elasticache-memcache-node2-endpoint:11211, etc."
 
 ## Step 3: Configure php.d/memcache.ini param values:
 
 memcache.hash_strategy = consistent
+
 memcache.allow_failover = 1
+
 memcache.session_redundancy = 3
 
 ## Step 4: Restart httpd 
